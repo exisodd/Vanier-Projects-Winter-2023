@@ -2,7 +2,7 @@ package weekend_task;
 
 public class Task4 {
     public static void main(String[] args) {
-        int[] integers = {1, 1, 1, 2, 3, 4, 6, 4};
+        int[] integers = {1, 1, 1, 2, 3, 4};
         printOccurrence(integers);
     }
 
@@ -18,6 +18,7 @@ public class Task4 {
             occurrence[i]++;
         }
 
+        // Loop over each number and print occurrence
         for (int i = 0; i < occurrence.length; i++) {
             if (occurrence[i] > 0) {
                 System.out.printf("%d repeated %d %s\n", i, occurrence[i], occurrence[i] == 1 ? "time" : "times");
