@@ -5,9 +5,9 @@ import java.util.Scanner;
 
 public class Task1 {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 7, 4, 5, 5, 6, 7, 7};
         Scanner console = new Scanner(System.in);
-        int input;
+        int[] arr = {5, 5, 4, 3, 2, 3, 2};
+        int option;
         do {
             // Prompt menu program for user interaction
             System.out.println("Input an option to do one of the following tasks: ");
@@ -15,50 +15,47 @@ public class Task1 {
                     "display which element has repeated most number of times", "remove an element", "sort the array",
                     "display", "exit"};
             for (int i = 0; i < options.length; i++) {
-                System.out.printf("    -Enter %d to %s\n", i, options[i]);
+                System.out.printf("   - Enter %d to %s\n", i, options[i]);
             }
-            input = console.nextInt();
+            option = console.nextInt();
             console.nextLine();
 
-            // Map corresponding options to user input
+            // Map corresponding options to user option
             int element;
-            switch (input) {
+            switch (option) {
                 case 0 -> {
-                    System.out.print("What element would you like to add?");
+                    System.out.print("What element would you like to add? ");
                     element = console.nextInt();
                     console.nextLine();
                     arr = addElement(arr, element);
-                    System.out.printf("Successfully added %d to the array\n", element);
+                    System.out.printf("Successfully added %d to the array.\n", element);
                 }
                 case 1 -> System.out.printf("The repeated elements are: %s\n", findRepeatedElements(arr));
-                case 2 -> System.out.printf("The array has %d elements\n", sizeOf(arr));
-                case 3 -> System.out.printf("%d has been repeated the most amount of times\n", greatestOccurrence(arr));
+                case 2 -> System.out.printf("The array has %d elements.\n", sizeOf(arr));
+                case 3 -> System.out.printf("%d has been repeated the most amount of times.\n", greatestOccurrence(arr));
                 case 4 -> {
-                    System.out.print("What element would you like to remove?");
+                    System.out.print("What element would you like to remove? ");
                     element = console.nextInt();
                     console.nextLine();
                     arr = removeElement(arr, element);
-                    System.out.printf("Successfully removed %d from the array\n", element);
+                    System.out.printf("Successfully removed %d from the array.\n", element);
                 }
                 case 5 -> {
-                    sort(arr);
+                    Arrays.sort(arr);
                     System.out.println("Successfully sorted array.");
                 }
                 case 6 -> System.out.println(Arrays.toString(arr));
                 case 7 -> {
-                    System.out.println("Goodbye!");
-                    input = -1;
+                    System.out.print("Goodbye!");
+                    option = -1;
                 }
             }
-        } while (input != -1);
+        } while (option != -1);
     }
 
     public static int[] addElement(int[] arr, int element) {
-        int[] array = new int[arr.length + 1];
-        // Copy each element individually
-        for (int i = 0; i < arr.length; i++) {
-            array[i] = arr[i];
-        }
+        // Create new copy of array
+        int[] array = Arrays.copyOf(arr, arr.length + 1);
         // Add element to end of array
         array[arr.length] = element;
         return array;
@@ -66,10 +63,13 @@ public class Task1 {
 
     public static int[] removeElement(int[] arr, int element) {
         int[] array = new int[arr.length - 1];
+        // Keep track if an element has already been removed
+        boolean notRemoved = true;
         // Copy each element individually
         for (int i = 0, j = 0; i < arr.length; i++) {
-            // If element is removed element, skip to next iteration
-            if (arr[i] == element) {
+            // If element is removed element and an element has not yet been removed, skip to next iteration
+            if (arr[i] == element && notRemoved) {
+                notRemoved = false;
                 continue;
             }
             array[j] = arr[i];
@@ -101,17 +101,6 @@ public class Task1 {
         return arr.length;
     }
 
-    public static void sort(int[] arr) {
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = i; j < arr.length - 1; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
-                }
-            }
-        }
-    }
     public static int greatestOccurrence(int[] arr) {
         int best = 0;
         int bestOccurrence = 0;
