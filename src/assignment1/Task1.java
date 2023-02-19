@@ -10,10 +10,11 @@ public class Task1 {
         int option;
         do {
             // Prompt menu program for user interaction
-            System.out.println("Input an option to do one of the following tasks: ");
-            String[] options = {"add an element", "find all repeated elements", "display size of array",
-                    "display which element has repeated most number of times", "remove an element", "sort the array",
-                    "display", "exit"};
+            System.out.println("Input an option to do one of the tasks: ");
+            String[] options = {"add an element", "find all repeated elements",
+                    "display size of array", "display which element has " +
+                    "repeated most number of times", "remove an element",
+                    "sort the array", "display", "exit"};
             for (int i = 0; i < options.length; i++) {
                 System.out.printf("   - Enter %d to %s\n", i, options[i]);
             }
@@ -23,32 +24,42 @@ public class Task1 {
             // Map corresponding options to user option
             int element;
             switch (option) {
-                case 0 -> {
+                case 0:
                     System.out.print("What element would you like to add? ");
                     element = console.nextInt();
                     console.nextLine();
                     arr = addElement(arr, element);
-                    System.out.printf("Successfully added %d to the array.\n", element);
-                }
-                case 1 -> System.out.printf("The repeated elements are: %s\n", findRepeatedElements(arr));
-                case 2 -> System.out.printf("The array has %d elements.\n", sizeOf(arr));
-                case 3 -> System.out.printf("%d has been repeated the most amount of times.\n", greatestOccurrence(arr));
-                case 4 -> {
+                    System.out.printf("Added %d to the array.\n", element);
+                    break;
+                case 1:
+                    System.out.printf("The repeated elements are: %s\n",
+                                      findRepeatedElements(arr));
+                    break;
+                case 2:
+                    System.out.printf("Array has %d elements.\n", sizeOf(arr));
+                    break;
+                case 3:
+                    System.out.printf("%d has been repeated the most amount " +
+                                      "of times.\n", greatestOccurrence(arr));
+                    break;
+                case 4:
                     System.out.print("What element would you like to remove? ");
                     element = console.nextInt();
                     console.nextLine();
                     arr = removeElement(arr, element);
-                    System.out.printf("Successfully removed %d from the array.\n", element);
-                }
-                case 5 -> {
+                    System.out.printf("Removed %d from the array.\n", element);
+                    break;
+                case 5:
                     Arrays.sort(arr);
                     System.out.println("Successfully sorted array.");
-                }
-                case 6 -> System.out.println(Arrays.toString(arr));
-                case 7 -> {
+                    break;
+                case 6:
+                    System.out.println(Arrays.toString(arr));
+                    break;
+                case 7:
                     System.out.print("Goodbye!");
                     option = -1;
-                }
+                    break;
             }
         } while (option != -1);
     }
@@ -67,7 +78,8 @@ public class Task1 {
         boolean notRemoved = true;
         // Copy each element individually
         for (int i = 0, j = 0; i < arr.length; i++) {
-            // If element is removed element and an element has not yet been removed, skip to next iteration
+            // If element is removed element and an element
+            // has not yet been removed, skip to next iteration
             if (arr[i] == element && notRemoved) {
                 notRemoved = false;
                 continue;
