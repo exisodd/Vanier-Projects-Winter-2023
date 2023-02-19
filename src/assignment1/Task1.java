@@ -59,7 +59,6 @@ public class Task1 {
                 case 7:
                     System.out.print("Goodbye!");
                     option = -1;
-                    break;
             }
         } while (option != -1);
     }
