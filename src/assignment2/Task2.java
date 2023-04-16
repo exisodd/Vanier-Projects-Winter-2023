@@ -33,7 +33,7 @@ public class Task2 {
     }
 
     // Custom Comparator to sort keys by last name
-    static class LastNameComparator implements Comparator<String> {
+    public static class LastNameComparator implements Comparator<String> {
         @Override
         public int compare(String person1, String person2) {
             // Extract the last names from the keys

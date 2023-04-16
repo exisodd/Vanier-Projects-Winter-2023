@@ -14,7 +14,7 @@ public class Task1 {
             treeSet.add(randomNumber);
         }
 
-        // Filter and print result
+        // Find numbers between 50 and 100 and print result
         TreeSet<Integer> filteredTreeSet = filter(treeSet);
         System.out.println("Complete tree set set: " + treeSet);
         System.out.print("Numbers x such that 50 > x > 100: " + filteredTreeSet);
