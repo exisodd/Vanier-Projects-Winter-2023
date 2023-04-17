@@ -18,8 +18,9 @@ public class Task7 {
 
             // Read file line by line
             while ((line = bufferedReader.readLine()) != null) {
+                // Convert line in text file to LinkedHashSet
+                // to remove duplicates and retain insertion order
                 System.out.println("Original sequence: " + line);
-                // Convert line in text file to LinkedHashSet to remove duplicates and retain insertion order
                 String[] words = line.split(" ");
                 LinkedHashSet<String> uniqueWords = new LinkedHashSet<>(Arrays.asList(words));
 

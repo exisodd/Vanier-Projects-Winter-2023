@@ -9,10 +9,12 @@ public class Task4 {
         System.out.println("Original list: " + numbers);
 
         // Cube and filter and average
+        double average1 = findAverage(numbers);
         numbers = cubeFilter(numbers);
-        double average = findAverage(numbers);
+        double average2 = findAverage(numbers);
+        System.out.println("Average of original list: " + average1);
         System.out.println("Cube and filtered >500 list: " + numbers);
-        System.out.println("Average of new list: " + average);
+        System.out.println("Average of new list: " + average2);
     }
 
     public static List<Integer> cubeFilter (List<Integer> list) {

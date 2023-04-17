@@ -15,12 +15,12 @@ public class Task1 {
         }
 
         // Find numbers between 50 and 100 and print result
-        TreeSet<Integer> filteredTreeSet = filter(treeSet);
+        TreeSet<Integer> resultTreeSet = findNums(treeSet);
         System.out.println("Complete tree set set: " + treeSet);
-        System.out.print("Numbers x such that 50 > x > 100: " + filteredTreeSet);
+        System.out.print("Numbers greater than 50 and less than 100: " + resultTreeSet);
     }
 
-    public static TreeSet<Integer> filter(TreeSet<Integer> inputSet) {
+    public static TreeSet<Integer> findNums(TreeSet<Integer> inputSet) {
         // Returns a new tree set with numbers less than 100 and greater than 50
         TreeSet<Integer> filteredSet = new TreeSet<>();
         for (int num : inputSet) {

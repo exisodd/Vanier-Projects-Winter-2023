@@ -19,6 +19,7 @@ public class Task3 {
     }
 
     public static void sortQueue(ArrayQueue<Integer> queue) {
+        // Create auxiliary queue space
         ArrayQueue<Integer> auxQueue = new ArrayQueue<>();
         int current;
         int min;
@@ -26,7 +27,7 @@ public class Task3 {
         // Repeat until queue has no items
         while (!queue.isEmpty()) {
             min = Integer.MAX_VALUE;
-            // Find minimum value by repeatedly dequeueing front
+            // Find minimum value by repeatedly dequeueing front and enqueueing to back
             for (int i = 0; i < queue.size(); i++) {
                 current = queue.dequeue();
                 min = Math.min(current, min);

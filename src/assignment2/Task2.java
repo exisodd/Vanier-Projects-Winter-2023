@@ -16,6 +16,7 @@ public class Task2 {
         defaultMap.put("Bob Johnson", 35);
         defaultMap.put("Charlie Phelps", 79);
         defaultMap.put("Zack Addams", 79);
+        // Also add pairs to second tree map
         lastNameSorted.putAll(defaultMap);
 
         // Print the sorted keys with their corresponding values
