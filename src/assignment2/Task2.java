@@ -10,7 +10,7 @@ public class Task2 {
         Map<String, Integer> lastNameSorted = new TreeMap<>(new LastNameComparator());
 
         // Add some <K, V> pairs, where K is first and last name and V is age
-        defaultMap.put("Ethan Tran", 39);
+        defaultMap.put("Ethan Tran", 18);
         defaultMap.put("Alice Wonderland", 11);
         defaultMap.put("Lee Jamal", 57);
         defaultMap.put("Bob Johnson", 35);
@@ -22,13 +22,13 @@ public class Task2 {
         // Print the sorted keys with their corresponding values
         System.out.println("Tree map sorted with default ordering: ");
         for (String key : defaultMap.keySet()) {
-            System.out.printf("\t- %s : %s\n", key, defaultMap.get(key));
+            System.out.printf("\t- %s : %d\n", key, defaultMap.get(key));
         }
 
         // Print the sorted keys according to last name values
         System.out.println("Tree map sorted according to last name ordering: ");
         for (String key : lastNameSorted.keySet()) {
-            System.out.printf("\t- %s : %s\n", key, defaultMap.get(key));
+            System.out.printf("\t- %s : %d\n", key, defaultMap.get(key));
         }
 
     }
